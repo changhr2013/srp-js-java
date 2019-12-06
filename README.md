@@ -10,7 +10,7 @@
 
 ### 0x02 SRP 协议协商过程
 
-![SRP-6 with refinements](./image/SRP-6-with-refinements.png)
+![SRP-6 with refinements](https://github.com/changhr2013/srp-js-java/blob/master/image/SRP-6-with-refinements.png)
 
 ### 0x03 快速启动
 
@@ -18,4 +18,4 @@
 
 客户端代码位于 `./client/` 目录下，使用浏览器访问 `index.html`，打开浏览器控制台，会显示与服务端的交互过程。
 
-![SRP client console](./image/srp-js-java-demo.png)
+![SRP client console](https://github.com/changhr2013/srp-js-java/blob/master/image/srp-js-java-demo.png)
