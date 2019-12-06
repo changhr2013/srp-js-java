@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>src-js-client</title>
+
+    <script src="./js/jquery-2.1.4.min.js"></script>
+
+    <!-- Include Thinbus SRP safe prime config first  -->
+    <script src="./js/rfc5054-safe-prime-config.js"></script>
+
+    <!-- Include minimised Thinbus SRP JS crypo library, chosen hashing algorithm, configuration  -->
+    <script src="./js/thinbus-srp6a-sha256-versioned.js"></script>
+
+    <script src="./js/srp-js-client.js"></script>
+</head>
+
+<body>
+    <p>Hello SRP6</p>
+    <p>请按 F12 打开浏览器控制台查看协商过程</p>
+</body>
+
+<script>
+  $(function () {
+    $.ajaxSettings.async = false;
+    SRP_CLIENT.uploadSaltAndVerifier({
+        sendSaltAndVerifier: 'http://127.0.0.1:8000/srp/upload/saltAndVerifier',
+        getSalt: 'http://127.0.0.1:8000/srp/download/salt',
+        swapAB: 'http://127.0.0.1:8000/srp/swap/AB',
+        sendM1: 'http://127.0.0.1:8000/srp/send/M1',
+        identity: 'test_username',
+        password: 'test_password',
+    });
+    var result = SRP_CLIENT.initialize();
+    console.log("srp 协商的会话密钥：" + result);
+    $.ajaxSettings.async = true;
+  });
+</script>
+</html>
